@@ -4,7 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-
+    <!--Food Nutrition Info Activity color bundle-->
+    <color name="titleBar">#fd9800</color>
+    <color name="whiteText">#FFFFFF</color>
+    <color name="buttonColor">#fd9800</color>
     <color name="colorDelete">#ff552d</color>
     <color name="colorUpdate">#37b9fc</color>
 </resources>

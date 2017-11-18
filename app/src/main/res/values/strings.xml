@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">FoodNutritionTracker</string>
 
+
+
+
+    <string name="what_did_you_eat">What Did You Eat Today?</string>
     <string name="add_f">Add</string>
 </resources>
