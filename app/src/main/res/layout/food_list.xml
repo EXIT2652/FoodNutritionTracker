@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.exit.cst2335project_foodnutritiontracker.FoodList">
 
+
     <RelativeLayout
         android:id="@+id/foodListTitle"
         android:layout_width="0dp"
