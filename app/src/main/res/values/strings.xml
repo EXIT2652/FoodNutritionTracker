@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FoodNutritionTracker</string>
+
+    <string name="add_f">Add</string>
+</resources>
