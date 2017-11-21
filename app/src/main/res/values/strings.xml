@@ -3,7 +3,12 @@
 
 
 
+    <string name="food_item_list">Food Item List</string>
+    <string name="food_what_did_you_eat">What Did You Eat Today?</string>
+    <string name="food_update">Update Your Food Item</string>
+    <string name="food_empty_warning">Please fill out all fields.</string>
+    <string name="food_servings_warning">Must be greater than zero.</string>
 
-    <string name="what_did_you_eat">What Did You Eat Today?</string>
+
     <string name="add_f">Add</string>
 </resources>

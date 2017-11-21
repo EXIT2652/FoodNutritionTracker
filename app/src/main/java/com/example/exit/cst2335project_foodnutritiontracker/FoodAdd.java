@@ -9,7 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -18,12 +21,10 @@ public class FoodAdd extends Activity {
 
     /*    protected static final String ACTIVITY_NAME = "AddItemsActivity";
         private String foodAdd = FoodAddActivity.class.getSimpleName();*/
-    private EditText addFoodName;
-    private EditText addServings;
+    private EditText addFoodName, addServings, addCalories, addFat, addCarbohydrate, addDate, addTime;
     private String addFoodAndServings;
-    private EditText addDate;
-    private EditText addTime;
     private Button buttonAdd;
+    private ImageView cross;
 
 
     @Override
@@ -33,9 +34,13 @@ public class FoodAdd extends Activity {
 
         addFoodName = (EditText) findViewById(R.id.addFoodName);
         addServings = (EditText) findViewById(R.id.addServings);
+        addCalories = (EditText) findViewById(R.id.addCalories);
+        addFat = (EditText) findViewById(R.id.addCalories);
+        addCarbohydrate = (EditText) findViewById(R.id.addCalories);
         addDate = (EditText) findViewById(R.id.addDate);
         addTime = (EditText) findViewById(R.id.addTime);
         buttonAdd = (Button) findViewById(R.id.addButton);
+
 
         final Calendar myCalendar = Calendar.getInstance();
         final Calendar myCurrentTime = Calendar.getInstance();
@@ -81,21 +86,47 @@ public class FoodAdd extends Activity {
             }
         });
 
+
         buttonAdd.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FoodAdd.this, FoodList.class);
 
-                if(addServings.getText().toString().equals("1"))
-                    addFoodAndServings = addServings.getText().toString() + " " + addFoodName.getText().toString();
-                else
-                    addFoodAndServings = addServings.getText().toString() + " " + addFoodName.getText().toString() + "s";
-                intent.putExtra("name", addFoodAndServings);
+                if (!addFoodName.getText().toString().equals("") && !addServings.getText().toString().equals("")
+                        && !addCalories.getText().toString().equals("") && !addFat.getText().toString().equals("")
+                        && !addCarbohydrate.getText().toString().equals("") && !addDate.getText().toString().equals("")
+                        && !addTime.getText().toString().equals("")) {
 
-                startActivity(intent);//Go back to FoodFragmentListView class after user presses Add button
+                        Intent resultIntent = new Intent();
+
+/*                        if(addServings.getText().toString().equals("0")) {
+                            Toast.makeText(getApplicationContext(), R.string.food_servings_warning, Toast.LENGTH_SHORT).show();
+                        } else*/ if (addServings.getText().toString().equals("1")) {
+                            addFoodAndServings = addServings.getText().toString() + " " + addFoodName.getText().toString();
+                        } else
+                            addFoodAndServings = addServings.getText().toString() + " " + addFoodName.getText().toString() + "s";
+                        resultIntent.putExtra("name", addFoodAndServings);
+                        setResult(1, resultIntent);
+                        finish();//Go back to FoodListView class after user presses Add button
+                } else {
+                    Toast.makeText(getApplicationContext(), R.string.food_empty_warning, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
+
+/*        cross = (ImageView) findViewById(R.id.cross);
+        cross.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+            }
+        });*/
+
     }
 
+    public void close_return(View view) {
+        finish();
+    }
 }

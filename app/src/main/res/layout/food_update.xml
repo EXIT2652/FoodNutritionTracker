@@ -21,7 +21,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="16dp"
             android:layout_weight="1"
-            android:text="@string/food_what_did_you_eat"
+            android:text="@string/food_update"
             android:textColor="@color/whiteText"
             android:textSize="24sp" />
 
@@ -108,11 +108,11 @@
 
         </LinearLayout>
 
-        <!--Right column list for user to enter food info -->
+        <!--Right column list for user to update food info -->
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -218,198 +218,34 @@
         </LinearLayout> <!--End of "Right column list"-->
     </LinearLayout> <!--End of "Medium: Text area"-->
 
-    <!--Bottom: Add button-->
+    <!--Bottom: Delete and Update buttons-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="60dp"
+        android:orientation="horizontal">
 
+        <!--Bottom: Delete button-->
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="145dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+
+            android:background="@color/deleteButtonColor"
+            android:text="Delete"
+            android:textColor="@color/whiteText"
+            android:textSize="23sp" />
+
+        <!--Bottom: Update button-->
         <Button
             android:id="@+id/addButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="Add"
-            android:textSize="23sp"
+            android:background="@color/addButtonColor"
+            android:text="Update"
             android:textColor="@color/whiteText"
-            android:background="@color/addButtonColor"/>
-    </LinearLayout> <!--End of "Bottom: Add button"-->
+            android:textSize="23sp" />
+    </LinearLayout> <!--End of "Bottom: Delete button-->"-->
 </LinearLayout>
-
-
-
-
-
-
-    <!--<?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent">
-
-<TableRow
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_margin="10dp"
-        android:text="Food Name:"
-        android:textSize="16dp" />
-
-    <EditText
-        android:id="@+id/addFoodName"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:width="200px" />
-
-</TableRow>
-
-<TableRow
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_margin="10dp"
-        android:text="Servings:"
-        android:textSize="16dp" />
-
-    <EditText
-        android:id="@+id/addServings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:maxLength="6"
-        android:gravity="right"
-        android:width="200px" />
-</TableRow>
-
-<TableRow
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_margin="10dp"
-        android:text="Calories:"
-        android:textSize="16dp" />
-
-    <EditText
-        android:id="@+id/addCalories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="200px"
-        android:hint="g"
-        android:gravity="right"
-        android:inputType="number" />
-</TableRow>
-
-<TableRow
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_margin="10dp"
-        android:text="Fat:"
-        android:textSize="16dp" />
-
-    <EditText
-        android:id="@+id/addFat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:gravity="right"
-        android:width="200px" />
-</TableRow>
-
-
-<TableRow
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_margin="10dp"
-        android:text="Carbohydrate:"
-        android:textSize="16dp" />
-
-    <EditText
-        android:id="@+id/addCarbo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:gravity="right"
-        android:width="200px" />
-</TableRow>
-
-<TableRow
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_margin="10dp"
-        android:text="Date:"
-        android:textSize="16dp" />
-
-    <EditText
-        android:id="@+id/addDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:focusable="false"
-
-        android:gravity="right"
-        android:width="200px" />
-</TableRow>
-
-<TableRow
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_margin="10dp"
-        android:text="Time:"
-        android:textSize="16dp" />
-
-    <EditText
-        android:id="@+id/addTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="time"
-        android:focusable="false"
-
-        android:gravity="right"
-        android:width="200px" />
-</TableRow>
-
-<TableRow
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" />
-
-
-<Button
-    android:id="@+id/addButton"
-    android:layout_width="wrap_content"
-    android:layout_height="40dp"
-    android:layout_margin="10dp"
-    android:background="@color/colorUpdate"
-    android:text="Add" />
-
-</TableLayout>-->
