@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".FoodAdd">
-            android:theme="@android:style/Theme.NoTitleBar"
+
 
         </activity>
         <activity android:name=".FoodList">
@@ -20,6 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".FoodUpdate"></activity>
     </application>
 
 </manifest>

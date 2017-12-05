@@ -24,8 +24,7 @@ public class FoodAdd extends Activity {
     private EditText addFoodName, addServings, addCalories, addFat, addCarbohydrate, addDate, addTime;
     private String addFoodAndServings;
     private Button buttonAdd;
-    private ImageView cross;
-
+    private FoodDatabaseHelper foodDatabaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +34,20 @@ public class FoodAdd extends Activity {
         addFoodName = (EditText) findViewById(R.id.addFoodName);
         addServings = (EditText) findViewById(R.id.addServings);
         addCalories = (EditText) findViewById(R.id.addCalories);
-        addFat = (EditText) findViewById(R.id.addCalories);
-        addCarbohydrate = (EditText) findViewById(R.id.addCalories);
+        addFat = (EditText) findViewById(R.id.addFat);
+        addCarbohydrate = (EditText) findViewById(R.id.addCarbo);
         addDate = (EditText) findViewById(R.id.addDate);
         addTime = (EditText) findViewById(R.id.addTime);
         buttonAdd = (Button) findViewById(R.id.addButton);
+        foodDatabaseHelper = new FoodDatabaseHelper(this);
 
+        foodDatabaseHelper.openDatabase();
 
+        //Get a calendar using the default locale and time-zone
         final Calendar myCalendar = Calendar.getInstance();
         final Calendar myCurrentTime = Calendar.getInstance();
 
-        //Pop up date picker dialog after user clicks Date edit text
+        //Pop up date picker dialog when user clicks Date edit text
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
@@ -67,7 +69,7 @@ public class FoodAdd extends Activity {
             }
         });
 
-        //Pop up time picker dialog after user clicks Time edit text
+        //Pop up time picker dialog when user clicks Time edit text
         addTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,7 +90,6 @@ public class FoodAdd extends Activity {
 
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
 
@@ -97,36 +98,45 @@ public class FoodAdd extends Activity {
                         && !addCarbohydrate.getText().toString().equals("") && !addDate.getText().toString().equals("")
                         && !addTime.getText().toString().equals("")) {
 
-                        Intent resultIntent = new Intent();
+                    //Insert records into database
+                    boolean isInserted = foodDatabaseHelper.insertData(addFoodName.getText().toString(),
+                            addServings.getText().toString(),
+                            addCalories.getText().toString(),
+                            addFat.getText().toString(),
+                            addCarbohydrate.getText().toString(),
+                            addDate.getText().toString(),
+                            addTime.getText().toString());
+                    if (isInserted == true)
+                        Toast.makeText(FoodAdd.this, "Information was added successfully.", Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(FoodAdd.this, "Failed to add information.", Toast.LENGTH_SHORT).show();
 
-/*                        if(addServings.getText().toString().equals("0")) {
-                            Toast.makeText(getApplicationContext(), R.string.food_servings_warning, Toast.LENGTH_SHORT).show();
-                        } else*/ if (addServings.getText().toString().equals("1")) {
-                            addFoodAndServings = addServings.getText().toString() + " " + addFoodName.getText().toString();
-                        } else
-                            addFoodAndServings = addServings.getText().toString() + " " + addFoodName.getText().toString() + "s";
-                        resultIntent.putExtra("name", addFoodAndServings);
-                        setResult(1, resultIntent);
-                        finish();//Go back to FoodListView class after user presses Add button
+/*                    Intent resultIntent = new Intent();
+
+                    if (addServings.getText().toString().equals("1")) {
+                        addFoodAndServings = addServings.getText().toString() + " " + addFoodName.getText().toString();
+                    } else
+                        addFoodAndServings = addServings.getText().toString() + " " + addFoodName.getText().toString() + "s";
+
+                    resultIntent.putExtra("addFoodAndServings", addFoodAndServings);
+                    setResult(1, resultIntent);
+                    finish();//Go back to FoodListView class after user presses Add button*/
                 } else {
                     Toast.makeText(getApplicationContext(), R.string.food_empty_warning, Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-
-/*        cross = (ImageView) findViewById(R.id.cross);
-        cross.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-            }
-        });*/
-
     }
 
+    //Click on cross image to close current activity
     public void close_return(View view) {
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        foodDatabaseHelper.closeDatabase();
     }
 }

@@ -23,7 +23,7 @@
             android:layout_weight="1"
             android:text="@string/food_what_did_you_eat"
             android:textColor="@color/whiteText"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
 
         <ImageView
             android:id="@+id/cross"
@@ -218,6 +218,10 @@
         </LinearLayout> <!--End of "Right column list"-->
     </LinearLayout> <!--End of "Medium: Text area"-->
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
     <!--Bottom: Add button-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -227,9 +231,9 @@
             android:id="@+id/addButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="Add"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:text="@string/food_Add_addButton"
             android:textSize="23sp"
             android:textColor="@color/whiteText"
             android:background="@color/addButtonColor"/>

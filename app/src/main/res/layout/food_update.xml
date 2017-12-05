@@ -218,6 +218,10 @@
         </LinearLayout> <!--End of "Right column list"-->
     </LinearLayout> <!--End of "Medium: Text area"-->
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
     <!--Bottom: Delete and Update buttons-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -229,22 +233,21 @@
             android:id="@+id/deleteButton"
             android:layout_width="145dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-
+            android:layout_marginLeft="12dp"
             android:background="@color/deleteButtonColor"
-            android:text="Delete"
+            android:text="@string/food_Update_deleteButton"
             android:textColor="@color/whiteText"
             android:textSize="23sp" />
 
         <!--Bottom: Update button-->
         <Button
-            android:id="@+id/addButton"
+            android:id="@+id/updateButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="12dp"
             android:background="@color/addButtonColor"
-            android:text="Update"
+            android:text="@string/food_Update_updateButton"
             android:textColor="@color/whiteText"
             android:textSize="23sp" />
     </LinearLayout> <!--End of "Bottom: Delete button-->"-->
