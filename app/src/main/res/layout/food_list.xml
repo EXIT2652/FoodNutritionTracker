@@ -35,7 +35,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="16dp"
-            android:src="@mipmap/ic_food_white_plus_circle" />
+            android:src="@drawable/ic_food_white_plus_circle" />
     </LinearLayout>
 
     <LinearLayout

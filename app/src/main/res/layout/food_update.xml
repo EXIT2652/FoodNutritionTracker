@@ -34,7 +34,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="16dp"
-            android:src="@mipmap/ic_food_white_cross" />
+            android:src="@drawable/ic_food_white_cross" />
     </LinearLayout>
 
     <!--Medium: Text area-->
@@ -121,7 +121,7 @@
 
                 <EditText
                     android:id="@+id/addFoodName"
-                    android:layout_width="230dp"
+                    android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:width="200px"
                     android:textSize="25sp"
@@ -135,7 +135,7 @@
 
                 <EditText
                     android:id="@+id/addServings"
-                    android:layout_width="230dp"
+                    android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:inputType="numberDecimal"
                     android:maxLength="6"
@@ -151,7 +151,7 @@
 
                 <EditText
                     android:id="@+id/addCalories"
-                    android:layout_width="230dp"
+                    android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:textSize="25sp"
                     android:gravity="bottom|right"
@@ -165,7 +165,7 @@
 
                 <EditText
                     android:id="@+id/addFat"
-                    android:layout_width="230dp"
+                    android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:inputType="number"
                     android:textSize="25sp"
@@ -179,7 +179,7 @@
 
                 <EditText
                     android:id="@+id/addCarbo"
-                    android:layout_width="230dp"
+                    android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:inputType="number"
                     android:textSize="25sp"
@@ -193,7 +193,7 @@
 
                 <EditText
                     android:id="@+id/addDate"
-                    android:layout_width="230dp"
+                    android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:focusable="false"
                     android:textSize="25sp"
@@ -207,7 +207,7 @@
 
                 <EditText
                     android:id="@+id/addTime"
-                    android:layout_width="230dp"
+                    android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:inputType="time"
                     android:focusable="false"

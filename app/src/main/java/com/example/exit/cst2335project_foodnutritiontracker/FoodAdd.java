@@ -106,8 +106,10 @@ public class FoodAdd extends Activity {
                             addCarbohydrate.getText().toString(),
                             addDate.getText().toString(),
                             addTime.getText().toString());
-                    if (isInserted == true)
+                    if (isInserted == true) {
                         Toast.makeText(FoodAdd.this, "Information was added successfully.", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
                     else
                         Toast.makeText(FoodAdd.this, "Failed to add information.", Toast.LENGTH_SHORT).show();
 
